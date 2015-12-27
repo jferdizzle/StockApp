@@ -1,0 +1,534 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		494DAA241C2ED4F4009644D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DAA231C2ED4F4009644D6 /* AppDelegate.swift */; };
+		494DAA261C2ED4F4009644D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DAA251C2ED4F4009644D6 /* ViewController.swift */; };
+		494DAA291C2ED4F5009644D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494DAA271C2ED4F4009644D6 /* Main.storyboard */; };
+		494DAA2C1C2ED4F5009644D6 /* Maia_EFFI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 494DAA2A1C2ED4F5009644D6 /* Maia_EFFI.xcdatamodeld */; };
+		494DAA2E1C2ED4F5009644D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 494DAA2D1C2ED4F5009644D6 /* Assets.xcassets */; };
+		494DAA311C2ED4F5009644D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494DAA2F1C2ED4F5009644D6 /* LaunchScreen.storyboard */; };
+		494DAA3C1C2ED4F5009644D6 /* Maia_EFFITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DAA3B1C2ED4F5009644D6 /* Maia_EFFITests.swift */; };
+		494DAA471C2ED4F5009644D6 /* Maia_EFFIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DAA461C2ED4F5009644D6 /* Maia_EFFIUITests.swift */; };
+		4991E9561C2FFEA500F364B4 /* Facts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4991E9551C2FFEA500F364B4 /* Facts.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		494DAA381C2ED4F5009644D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 494DAA181C2ED4F4009644D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 494DAA1F1C2ED4F4009644D6;
+			remoteInfo = "Maia+EFFI";
+		};
+		494DAA431C2ED4F5009644D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 494DAA181C2ED4F4009644D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 494DAA1F1C2ED4F4009644D6;
+			remoteInfo = "Maia+EFFI";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		494DAA201C2ED4F4009644D6 /* Maia+EFFI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Maia+EFFI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		494DAA231C2ED4F4009644D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		494DAA251C2ED4F4009644D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		494DAA281C2ED4F4009644D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		494DAA2B1C2ED4F5009644D6 /* Maia_EFFI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Maia_EFFI.xcdatamodel; sourceTree = "<group>"; };
+		494DAA2D1C2ED4F5009644D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		494DAA301C2ED4F5009644D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		494DAA321C2ED4F5009644D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		494DAA371C2ED4F5009644D6 /* Maia+EFFITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Maia+EFFITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		494DAA3B1C2ED4F5009644D6 /* Maia_EFFITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maia_EFFITests.swift; sourceTree = "<group>"; };
+		494DAA3D1C2ED4F5009644D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		494DAA421C2ED4F5009644D6 /* Maia+EFFIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Maia+EFFIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		494DAA461C2ED4F5009644D6 /* Maia_EFFIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maia_EFFIUITests.swift; sourceTree = "<group>"; };
+		494DAA481C2ED4F5009644D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4991E9551C2FFEA500F364B4 /* Facts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Facts.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		494DAA1D1C2ED4F4009644D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		494DAA341C2ED4F5009644D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		494DAA3F1C2ED4F5009644D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		494DAA171C2ED4F4009644D6 = {
+			isa = PBXGroup;
+			children = (
+				494DAA221C2ED4F4009644D6 /* Maia+EFFI */,
+				494DAA3A1C2ED4F5009644D6 /* Maia+EFFITests */,
+				494DAA451C2ED4F5009644D6 /* Maia+EFFIUITests */,
+				494DAA211C2ED4F4009644D6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		494DAA211C2ED4F4009644D6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				494DAA201C2ED4F4009644D6 /* Maia+EFFI.app */,
+				494DAA371C2ED4F5009644D6 /* Maia+EFFITests.xctest */,
+				494DAA421C2ED4F5009644D6 /* Maia+EFFIUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		494DAA221C2ED4F4009644D6 /* Maia+EFFI */ = {
+			isa = PBXGroup;
+			children = (
+				494DAA231C2ED4F4009644D6 /* AppDelegate.swift */,
+				494DAA251C2ED4F4009644D6 /* ViewController.swift */,
+				4991E9551C2FFEA500F364B4 /* Facts.swift */,
+				494DAA271C2ED4F4009644D6 /* Main.storyboard */,
+				494DAA2D1C2ED4F5009644D6 /* Assets.xcassets */,
+				494DAA2F1C2ED4F5009644D6 /* LaunchScreen.storyboard */,
+				494DAA321C2ED4F5009644D6 /* Info.plist */,
+				494DAA2A1C2ED4F5009644D6 /* Maia_EFFI.xcdatamodeld */,
+			);
+			path = "Maia+EFFI";
+			sourceTree = "<group>";
+		};
+		494DAA3A1C2ED4F5009644D6 /* Maia+EFFITests */ = {
+			isa = PBXGroup;
+			children = (
+				494DAA3B1C2ED4F5009644D6 /* Maia_EFFITests.swift */,
+				494DAA3D1C2ED4F5009644D6 /* Info.plist */,
+			);
+			path = "Maia+EFFITests";
+			sourceTree = "<group>";
+		};
+		494DAA451C2ED4F5009644D6 /* Maia+EFFIUITests */ = {
+			isa = PBXGroup;
+			children = (
+				494DAA461C2ED4F5009644D6 /* Maia_EFFIUITests.swift */,
+				494DAA481C2ED4F5009644D6 /* Info.plist */,
+			);
+			path = "Maia+EFFIUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		494DAA1F1C2ED4F4009644D6 /* Maia+EFFI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 494DAA4B1C2ED4F5009644D6 /* Build configuration list for PBXNativeTarget "Maia+EFFI" */;
+			buildPhases = (
+				494DAA1C1C2ED4F4009644D6 /* Sources */,
+				494DAA1D1C2ED4F4009644D6 /* Frameworks */,
+				494DAA1E1C2ED4F4009644D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Maia+EFFI";
+			productName = "Maia+EFFI";
+			productReference = 494DAA201C2ED4F4009644D6 /* Maia+EFFI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		494DAA361C2ED4F5009644D6 /* Maia+EFFITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 494DAA4E1C2ED4F5009644D6 /* Build configuration list for PBXNativeTarget "Maia+EFFITests" */;
+			buildPhases = (
+				494DAA331C2ED4F5009644D6 /* Sources */,
+				494DAA341C2ED4F5009644D6 /* Frameworks */,
+				494DAA351C2ED4F5009644D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				494DAA391C2ED4F5009644D6 /* PBXTargetDependency */,
+			);
+			name = "Maia+EFFITests";
+			productName = "Maia+EFFITests";
+			productReference = 494DAA371C2ED4F5009644D6 /* Maia+EFFITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		494DAA411C2ED4F5009644D6 /* Maia+EFFIUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 494DAA511C2ED4F5009644D6 /* Build configuration list for PBXNativeTarget "Maia+EFFIUITests" */;
+			buildPhases = (
+				494DAA3E1C2ED4F5009644D6 /* Sources */,
+				494DAA3F1C2ED4F5009644D6 /* Frameworks */,
+				494DAA401C2ED4F5009644D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				494DAA441C2ED4F5009644D6 /* PBXTargetDependency */,
+			);
+			name = "Maia+EFFIUITests";
+			productName = "Maia+EFFIUITests";
+			productReference = 494DAA421C2ED4F5009644D6 /* Maia+EFFIUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		494DAA181C2ED4F4009644D6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Julian Ferdman";
+				TargetAttributes = {
+					494DAA1F1C2ED4F4009644D6 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = MPM5PQ7658;
+					};
+					494DAA361C2ED4F5009644D6 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = MPM5PQ7658;
+						TestTargetID = 494DAA1F1C2ED4F4009644D6;
+					};
+					494DAA411C2ED4F5009644D6 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = MPM5PQ7658;
+						TestTargetID = 494DAA1F1C2ED4F4009644D6;
+					};
+				};
+			};
+			buildConfigurationList = 494DAA1B1C2ED4F4009644D6 /* Build configuration list for PBXProject "Maia+EFFI" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 494DAA171C2ED4F4009644D6;
+			productRefGroup = 494DAA211C2ED4F4009644D6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				494DAA1F1C2ED4F4009644D6 /* Maia+EFFI */,
+				494DAA361C2ED4F5009644D6 /* Maia+EFFITests */,
+				494DAA411C2ED4F5009644D6 /* Maia+EFFIUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		494DAA1E1C2ED4F4009644D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				494DAA311C2ED4F5009644D6 /* LaunchScreen.storyboard in Resources */,
+				494DAA2E1C2ED4F5009644D6 /* Assets.xcassets in Resources */,
+				494DAA291C2ED4F5009644D6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		494DAA351C2ED4F5009644D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		494DAA401C2ED4F5009644D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		494DAA1C1C2ED4F4009644D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				494DAA261C2ED4F4009644D6 /* ViewController.swift in Sources */,
+				494DAA241C2ED4F4009644D6 /* AppDelegate.swift in Sources */,
+				494DAA2C1C2ED4F5009644D6 /* Maia_EFFI.xcdatamodeld in Sources */,
+				4991E9561C2FFEA500F364B4 /* Facts.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		494DAA331C2ED4F5009644D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				494DAA3C1C2ED4F5009644D6 /* Maia_EFFITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		494DAA3E1C2ED4F5009644D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				494DAA471C2ED4F5009644D6 /* Maia_EFFIUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		494DAA391C2ED4F5009644D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 494DAA1F1C2ED4F4009644D6 /* Maia+EFFI */;
+			targetProxy = 494DAA381C2ED4F5009644D6 /* PBXContainerItemProxy */;
+		};
+		494DAA441C2ED4F5009644D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 494DAA1F1C2ED4F4009644D6 /* Maia+EFFI */;
+			targetProxy = 494DAA431C2ED4F5009644D6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		494DAA271C2ED4F4009644D6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				494DAA281C2ED4F4009644D6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		494DAA2F1C2ED4F5009644D6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				494DAA301C2ED4F5009644D6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		494DAA491C2ED4F5009644D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		494DAA4A1C2ED4F5009644D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		494DAA4C1C2ED4F5009644D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Maia+EFFI/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jf.Maia-EFFI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		494DAA4D1C2ED4F5009644D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Maia+EFFI/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jf.Maia-EFFI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		494DAA4F1C2ED4F5009644D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Maia+EFFITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jf.Maia-EFFITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maia+EFFI.app/Maia+EFFI";
+			};
+			name = Debug;
+		};
+		494DAA501C2ED4F5009644D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Maia+EFFITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jf.Maia-EFFITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maia+EFFI.app/Maia+EFFI";
+			};
+			name = Release;
+		};
+		494DAA521C2ED4F5009644D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Maia+EFFIUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jf.Maia-EFFIUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Maia+EFFI";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		494DAA531C2ED4F5009644D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Maia+EFFIUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jf.Maia-EFFIUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Maia+EFFI";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		494DAA1B1C2ED4F4009644D6 /* Build configuration list for PBXProject "Maia+EFFI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				494DAA491C2ED4F5009644D6 /* Debug */,
+				494DAA4A1C2ED4F5009644D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		494DAA4B1C2ED4F5009644D6 /* Build configuration list for PBXNativeTarget "Maia+EFFI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				494DAA4C1C2ED4F5009644D6 /* Debug */,
+				494DAA4D1C2ED4F5009644D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		494DAA4E1C2ED4F5009644D6 /* Build configuration list for PBXNativeTarget "Maia+EFFITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				494DAA4F1C2ED4F5009644D6 /* Debug */,
+				494DAA501C2ED4F5009644D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		494DAA511C2ED4F5009644D6 /* Build configuration list for PBXNativeTarget "Maia+EFFIUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				494DAA521C2ED4F5009644D6 /* Debug */,
+				494DAA531C2ED4F5009644D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		494DAA2A1C2ED4F5009644D6 /* Maia_EFFI.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				494DAA2B1C2ED4F5009644D6 /* Maia_EFFI.xcdatamodel */,
+			);
+			currentVersion = 494DAA2B1C2ED4F5009644D6 /* Maia_EFFI.xcdatamodel */;
+			path = Maia_EFFI.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 494DAA181C2ED4F4009644D6 /* Project object */;
+}

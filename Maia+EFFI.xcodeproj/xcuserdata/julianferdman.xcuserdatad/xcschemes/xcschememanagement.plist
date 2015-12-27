@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Maia+EFFI.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>494DAA1F1C2ED4F4009644D6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>494DAA361C2ED4F5009644D6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>494DAA411C2ED4F5009644D6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
