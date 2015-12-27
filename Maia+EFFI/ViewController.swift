@@ -78,8 +78,11 @@ class ViewController: UIViewController, NSURLConnectionDelegate, UITableViewDele
         
         //Empty Table
         emptyTable.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
-        emptyTable.alpha = 1
+        emptyTable.delegate = self
+        emptyTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         emptyTable.backgroundColor = UIColor.clearColor()
+        emptyTable.separatorStyle = UITableViewCellSeparatorStyle.None
+        emptyTable.opaque = false
         view.addSubview(emptyTable)
         
         //Refresh
@@ -153,6 +156,24 @@ class ViewController: UIViewController, NSURLConnectionDelegate, UITableViewDele
     {
         // Code to refresh table view
         startConnection()
+    }
+    
+    func emptyTable(emptyTable: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func emptyTable(emptyTable: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell:UITableViewCell = emptyTable.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+        cell.textLabel!.backgroundColor = UIColor.clearColor()
+        cell.detailTextLabel!.backgroundColor = UIColor.clearColor()
+        cell.backgroundColor = UIColor(white:0,alpha:1)
+        return cell
+        
+    }
+    
+    func emptyTable(emptyTable: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
     }
 
     override func didReceiveMemoryWarning() {
