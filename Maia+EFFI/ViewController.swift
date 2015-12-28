@@ -87,8 +87,9 @@ class ViewController: UIViewController, NSURLConnectionDelegate, UITableViewDele
         
         //Refresh
         self.refreshControl = UIRefreshControl()
-        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.attributedTitle = NSAttributedString(string: "")
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl.tintColor = UIColor.yellowColor()
         self.emptyTable.addSubview(refreshControl)
         
         
