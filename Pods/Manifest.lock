@@ -1,0 +1,21 @@
+PODS:
+  - Alamofire (4.0.1)
+  - PullToRefreshSwift (3.0.3)
+  - SnapKit (3.0.2)
+  - SwiftyJSON (3.0.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.0)
+  - PullToRefreshSwift
+  - SnapKit (>= 3.0.0)
+  - SwiftyJSON (= 3.0.0)
+
+SPEC CHECKSUMS:
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  PullToRefreshSwift: 0743b818072bfd7c9464addc2d1b987b131057ca
+  SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
+  SwiftyJSON: f57b2b44bc166617372d1c70773591fe9f0f5fd4
+
+PODFILE CHECKSUM: 6443921e659cbfe75cec14b93d3577e7339cbfea
+
+COCOAPODS: 1.1.1

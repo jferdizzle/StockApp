@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		406ABE309B1F6C4451774F73 /* Pods_Maia_EFFITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B79E4D632EAEC99AB95E9FD /* Pods_Maia_EFFITests.framework */; };
 		494DAA241C2ED4F4009644D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DAA231C2ED4F4009644D6 /* AppDelegate.swift */; };
 		494DAA261C2ED4F4009644D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DAA251C2ED4F4009644D6 /* ViewController.swift */; };
 		494DAA291C2ED4F5009644D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494DAA271C2ED4F4009644D6 /* Main.storyboard */; };
@@ -16,6 +17,8 @@
 		494DAA3C1C2ED4F5009644D6 /* Maia_EFFITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DAA3B1C2ED4F5009644D6 /* Maia_EFFITests.swift */; };
 		494DAA471C2ED4F5009644D6 /* Maia_EFFIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DAA461C2ED4F5009644D6 /* Maia_EFFIUITests.swift */; };
 		4991E9561C2FFEA500F364B4 /* Facts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4991E9551C2FFEA500F364B4 /* Facts.swift */; };
+		7B40506251B331FB3A592D5D /* Pods_Maia_EFFI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9A61D853AE77E501B85E1C8 /* Pods_Maia_EFFI.framework */; };
+		A8D7C2AF375242EB43D4CC2A /* Pods_Maia_EFFIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA7B57CB44F68732232D845 /* Pods_Maia_EFFIUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3318DEB355A7E74E8A8E707E /* Pods-Maia+EFFI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maia+EFFI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Maia+EFFI/Pods-Maia+EFFI.debug.xcconfig"; sourceTree = "<group>"; };
+		334AB9AA5B0FBFC6D976E773 /* Pods-Maia+EFFIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maia+EFFIUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Maia+EFFIUITests/Pods-Maia+EFFIUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		494DAA201C2ED4F4009644D6 /* Maia+EFFI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Maia+EFFI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		494DAA231C2ED4F4009644D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		494DAA251C2ED4F4009644D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +56,13 @@
 		494DAA461C2ED4F5009644D6 /* Maia_EFFIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maia_EFFIUITests.swift; sourceTree = "<group>"; };
 		494DAA481C2ED4F5009644D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4991E9551C2FFEA500F364B4 /* Facts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Facts.swift; sourceTree = "<group>"; };
+		5AA7B57CB44F68732232D845 /* Pods_Maia_EFFIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Maia_EFFIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B79E4D632EAEC99AB95E9FD /* Pods_Maia_EFFITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Maia_EFFITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6C37DD29DE09A48857E9E57 /* Pods-Maia+EFFI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maia+EFFI.release.xcconfig"; path = "Pods/Target Support Files/Pods-Maia+EFFI/Pods-Maia+EFFI.release.xcconfig"; sourceTree = "<group>"; };
+		B9A61D853AE77E501B85E1C8 /* Pods_Maia_EFFI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Maia_EFFI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E96BA47512FE55B1008E315F /* Pods-Maia+EFFITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maia+EFFITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Maia+EFFITests/Pods-Maia+EFFITests.debug.xcconfig"; sourceTree = "<group>"; };
+		ED8A2891749DACF8626882A1 /* Pods-Maia+EFFITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maia+EFFITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Maia+EFFITests/Pods-Maia+EFFITests.release.xcconfig"; sourceTree = "<group>"; };
+		F178B67F3F1184BB13BC28A2 /* Pods-Maia+EFFIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maia+EFFIUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Maia+EFFIUITests/Pods-Maia+EFFIUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B40506251B331FB3A592D5D /* Pods_Maia_EFFI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				406ABE309B1F6C4451774F73 /* Pods_Maia_EFFITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +86,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8D7C2AF375242EB43D4CC2A /* Pods_Maia_EFFIUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1080C0E6322F619A58D5AF83 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B9A61D853AE77E501B85E1C8 /* Pods_Maia_EFFI.framework */,
+				8B79E4D632EAEC99AB95E9FD /* Pods_Maia_EFFITests.framework */,
+				5AA7B57CB44F68732232D845 /* Pods_Maia_EFFIUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		333C46E34E69B2E45884D9B5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3318DEB355A7E74E8A8E707E /* Pods-Maia+EFFI.debug.xcconfig */,
+				B6C37DD29DE09A48857E9E57 /* Pods-Maia+EFFI.release.xcconfig */,
+				E96BA47512FE55B1008E315F /* Pods-Maia+EFFITests.debug.xcconfig */,
+				ED8A2891749DACF8626882A1 /* Pods-Maia+EFFITests.release.xcconfig */,
+				334AB9AA5B0FBFC6D976E773 /* Pods-Maia+EFFIUITests.debug.xcconfig */,
+				F178B67F3F1184BB13BC28A2 /* Pods-Maia+EFFIUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		494DAA171C2ED4F4009644D6 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +123,8 @@
 				494DAA3A1C2ED4F5009644D6 /* Maia+EFFITests */,
 				494DAA451C2ED4F5009644D6 /* Maia+EFFIUITests */,
 				494DAA211C2ED4F4009644D6 /* Products */,
+				333C46E34E69B2E45884D9B5 /* Pods */,
+				1080C0E6322F619A58D5AF83 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,9 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 494DAA4B1C2ED4F5009644D6 /* Build configuration list for PBXNativeTarget "Maia+EFFI" */;
 			buildPhases = (
+				90524A4631A0BA85CE26E9B0 /* [CP] Check Pods Manifest.lock */,
 				494DAA1C1C2ED4F4009644D6 /* Sources */,
 				494DAA1D1C2ED4F4009644D6 /* Frameworks */,
 				494DAA1E1C2ED4F4009644D6 /* Resources */,
+				10513C181BF3220C0166B379 /* [CP] Embed Pods Frameworks */,
+				C6180D02DF1571113864AA12 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -155,9 +198,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 494DAA4E1C2ED4F5009644D6 /* Build configuration list for PBXNativeTarget "Maia+EFFITests" */;
 			buildPhases = (
+				82A030C25018699FEFB8BF5F /* [CP] Check Pods Manifest.lock */,
 				494DAA331C2ED4F5009644D6 /* Sources */,
 				494DAA341C2ED4F5009644D6 /* Frameworks */,
 				494DAA351C2ED4F5009644D6 /* Resources */,
+				D7FA7F8408B12EE40C0ACB29 /* [CP] Embed Pods Frameworks */,
+				57E77B39F38A934564BBB097 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -173,9 +219,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 494DAA511C2ED4F5009644D6 /* Build configuration list for PBXNativeTarget "Maia+EFFIUITests" */;
 			buildPhases = (
+				F7B52192AE83873E4856140B /* [CP] Check Pods Manifest.lock */,
 				494DAA3E1C2ED4F5009644D6 /* Sources */,
 				494DAA3F1C2ED4F5009644D6 /* Frameworks */,
 				494DAA401C2ED4F5009644D6 /* Resources */,
+				EDAE7BCF33BD3C88466F0439 /* [CP] Embed Pods Frameworks */,
+				BA49ECA5659ACB8156C3CBF0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -194,21 +243,24 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Julian Ferdman";
 				TargetAttributes = {
 					494DAA1F1C2ED4F4009644D6 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = MPM5PQ7658;
+						LastSwiftMigration = 0800;
 					};
 					494DAA361C2ED4F5009644D6 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = MPM5PQ7658;
+						LastSwiftMigration = 0800;
 						TestTargetID = 494DAA1F1C2ED4F4009644D6;
 					};
 					494DAA411C2ED4F5009644D6 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = MPM5PQ7658;
+						LastSwiftMigration = 0800;
 						TestTargetID = 494DAA1F1C2ED4F4009644D6;
 					};
 				};
@@ -259,6 +311,144 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		10513C181BF3220C0166B379 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Maia+EFFI/Pods-Maia+EFFI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57E77B39F38A934564BBB097 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Maia+EFFITests/Pods-Maia+EFFITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82A030C25018699FEFB8BF5F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		90524A4631A0BA85CE26E9B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BA49ECA5659ACB8156C3CBF0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Maia+EFFIUITests/Pods-Maia+EFFIUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6180D02DF1571113864AA12 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Maia+EFFI/Pods-Maia+EFFI-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7FA7F8408B12EE40C0ACB29 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Maia+EFFITests/Pods-Maia+EFFITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EDAE7BCF33BD3C88466F0439 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Maia+EFFIUITests/Pods-Maia+EFFIUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7B52192AE83873E4856140B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		494DAA1C1C2ED4F4009644D6 /* Sources */ = {
@@ -336,8 +526,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -381,8 +573,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -401,6 +595,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -408,57 +603,67 @@
 		};
 		494DAA4C1C2ED4F5009644D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3318DEB355A7E74E8A8E707E /* Pods-Maia+EFFI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Maia+EFFI/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jf.Maia-EFFI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		494DAA4D1C2ED4F5009644D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6C37DD29DE09A48857E9E57 /* Pods-Maia+EFFI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Maia+EFFI/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jf.Maia-EFFI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		494DAA4F1C2ED4F5009644D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E96BA47512FE55B1008E315F /* Pods-Maia+EFFITests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Maia+EFFITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jf.Maia-EFFITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maia+EFFI.app/Maia+EFFI";
 			};
 			name = Debug;
 		};
 		494DAA501C2ED4F5009644D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED8A2891749DACF8626882A1 /* Pods-Maia+EFFITests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Maia+EFFITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jf.Maia-EFFITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maia+EFFI.app/Maia+EFFI";
 			};
 			name = Release;
 		};
 		494DAA521C2ED4F5009644D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 334AB9AA5B0FBFC6D976E773 /* Pods-Maia+EFFIUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "Maia+EFFIUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jf.Maia-EFFIUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Maia+EFFI";
 				USES_XCTRUNNER = YES;
 			};
@@ -466,11 +671,13 @@
 		};
 		494DAA531C2ED4F5009644D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F178B67F3F1184BB13BC28A2 /* Pods-Maia+EFFIUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "Maia+EFFIUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jf.Maia-EFFIUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Maia+EFFI";
 				USES_XCTRUNNER = YES;
 			};

@@ -7,175 +7,182 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import SnapKit
+import PullToRefreshSwift
 
-class ViewController: UIViewController, NSURLConnectionDelegate, UITableViewDelegate  {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
-    lazy var data = NSMutableData()
+    
     var buyingPrice : Double! = 0.0026
     var commission : Double! = 8.95
     var shares : Double! =  60000.00
-    var emptyTable = UITableView()
-    var refreshControl:UIRefreshControl!
+    var stockView = UITableView()
     
     
-    //Pane 1
-    var Pane1 = UILabel()
-    //Pane 2
-    var Pane2 = UILabel()
-    //Pane 3
-    var Pane3 = UILabel()
-    //Pane 4
-    var Pane4 = UILabel()
-    //Pane 5
-    var Pane5 = UILabel()
+    
+    var stockData : [String] = []
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        startConnection()
-        
-        //Pane 1
-        Pane1.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height/5)
-        Pane1.font = UIFont.systemFontOfSize(18)
-        Pane1.textColor = UIColor.whiteColor()
-        Pane1.backgroundColor = UIColor.grayColor()
-        Pane1.textAlignment = NSTextAlignment.Center
-        view.addSubview(Pane1)
-        
-        //Pane 2
-        Pane2.frame = CGRect(x: 0, y: Pane1.frame.maxY, width: view.frame.width, height: view.frame.height/5)
-        Pane2.font = UIFont.systemFontOfSize(18)
-        Pane2.textColor = UIColor.whiteColor()
-        Pane2.backgroundColor = UIColor.lightGrayColor()
-        Pane2.textAlignment = NSTextAlignment.Center
-        view.addSubview(Pane2)
-        
-        //Pane 3
-        Pane3.frame = CGRect(x: 0, y: Pane2.frame.maxY, width: view.frame.width, height: view.frame.height/5)
-        Pane3.font = UIFont.systemFontOfSize(18)
-        Pane3.textColor = UIColor.whiteColor()
-        Pane3.textAlignment = NSTextAlignment.Center
-        Pane3.backgroundColor = UIColor.grayColor()
-        view.addSubview(Pane3)
-        
-        //Pane 4
-        Pane4.frame = CGRect(x: 0, y: Pane3.frame.maxY, width: view.frame.width, height: view.frame.height/5)
-        Pane4.font = UIFont.systemFontOfSize(18)
-        Pane4.textColor = UIColor.whiteColor()
-        Pane4.textAlignment = NSTextAlignment.Center
-        Pane4.backgroundColor = UIColor.lightGrayColor()
-        view.addSubview(Pane4)
-        
-        //Pane 5
-        Pane5.frame = CGRect(x: 0, y: Pane4.frame.maxY, width: view.frame.width, height: view.frame.height/5)
-        Pane5.font = UIFont.systemFontOfSize(18)
-        Pane5.textColor = UIColor.whiteColor()
-        Pane5.lineBreakMode = .ByWordWrapping
-        Pane5.numberOfLines = 0 
-        Pane5.textAlignment = NSTextAlignment.Center
-        Pane5.backgroundColor = UIColor.grayColor()
-        view.addSubview(Pane5)
-        
-        //Empty Table
-        emptyTable.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
-        emptyTable.delegate = self
-        emptyTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        emptyTable.backgroundColor = UIColor.clearColor()
-        emptyTable.separatorStyle = UITableViewCellSeparatorStyle.None
-        emptyTable.opaque = false
-        view.addSubview(emptyTable)
-        
-        //Refresh
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl.attributedTitle = NSAttributedString(string: "")
-        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
-        self.refreshControl.tintColor = UIColor.yellowColor()
-        self.emptyTable.addSubview(refreshControl)
         
         
+        loadTableView()
+        view.backgroundColor = .yellow
         
     }
     
-    func startConnection(){
-        let baseUrl:NSURL = NSURL(string:"http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20%28%22EFFI%22%29%0A%09%09&env=http%3A%2F%2Fdatatables.org%2Falltables.env&format=json")!
-        let request: NSURLRequest = NSURLRequest(URL: baseUrl)
-        let connection: NSURLConnection = NSURLConnection(request: request, delegate: self, startImmediately: true)!
+    
+    
+    //START TABLEVIEW
+    
+    func loadTableView() {
         
-    }
-    
-    func connection(didReceiveResponse: NSURLConnection!, didReceiveResponse response: NSURLResponse!) {
         
-        // Recieved a new request, clear out the data object
-        self.data = NSMutableData()
+        self.view.addSubview(stockView)
         
-    }
-    
-    func connection(connection: NSURLConnection!, didReceiveData data: NSData!) {
-        // Append the recieved chunk of data to our data object
-        self.data.appendData(data)
-    }
-    
-    
-    
-    func connectionDidFinishLoading(connection: NSURLConnection!) {
-        // Request complete, self.data should now hold the resulting info
-        // Convert the retrieved data in to an object through JSON deserialization
+        stockView.delegate = self
+        stockView.dataSource = self
+        stockView.separatorStyle = UITableViewCellSeparatorStyle.none
+        stockView.rowHeight = view.frame.height/5
         
-        do {
-            if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSDictionary {
-                let query: NSDictionary = jsonResult["query"] as! NSDictionary
-                let results: NSDictionary = query["results"] as! NSDictionary
-                let quote: NSDictionary = results["quote"] as! NSDictionary
-                let price: String = quote["LastTradePriceOnly"] as! String
-                let currentPrice : Double! = Double(price)
-                
-                //Calculations
-                let percentGain = ((currentPrice! - buyingPrice)/buyingPrice)*100 //NOTE: Percent gain does not include commission
-                let dollarValue = shares * currentPrice! - commission
-                let purchaseValue = shares * buyingPrice - commission
-                let netGain = currentPrice!*shares - buyingPrice * shares-commission
-                let randomIndex = Int(arc4random_uniform(UInt32(factsArray.count)))
-                
-                //Show prices ------
-                Pane1.text = "EFFI IS TRADING AT "+String(currentPrice)
-                Pane2.text = "YOUR SHARES ARE WORTH $"+String(format: "%.2f",dollarValue)
-                Pane3.text = "THIS IS A GAIN OF $"+String(format: "%.2f",netGain)+" or "+String(format: "%.3f",percentGain)+"%"
-                Pane4.text = "IF YOU SOLD NOW YOU'D BANK $"+String(format: "%.2f",netGain+purchaseValue)
-                Pane5.text = factsArray[randomIndex]
-                
-                //Stop refreshing
-                self.refreshControl.endRefreshing()
-                
+        
+        var options = PullToRefreshOption()
+        options.backgroundColor = .black
+        options.indicatorColor = .yellow
+        
+        
+        
+        stockView.addPullRefresh(options: options) { [weak self] in
+            
+            DispatchQueue.main.async {
+                self?.getStockData()
             }
-        } catch let error as NSError {
-            print(error.localizedDescription)
+            self?.stockView.stopPullRefreshEver()
+            
         }
-
-    }
-    
-    func refresh(sender:AnyObject)
-    {
-        // Code to refresh table view
-        startConnection()
-    }
-    
-    func emptyTable(emptyTable: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
-    
-    func emptyTable(emptyTable: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell:UITableViewCell = emptyTable.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
-        cell.textLabel!.backgroundColor = UIColor.clearColor()
-        cell.detailTextLabel!.backgroundColor = UIColor.clearColor()
-        cell.backgroundColor = UIColor(white:0,alpha:1)
+        
+        stockView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        stockView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.view.snp.top)
+            make.centerX.equalTo(self.view.snp.centerX)
+            make.width.equalTo(self.view.snp.width)
+            make.bottom.equalTo(self.view.snp.bottom)
+        }
+        
+        
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
+        
+        cell.selectionStyle = .none
+        cell.textLabel?.textAlignment = .center
+        cell.textLabel?.textColor = .white
+        cell.textLabel?.lineBreakMode = .byWordWrapping
+        cell.textLabel?.numberOfLines = 0
+        
+        cell.detailTextLabel?.lineBreakMode = .byWordWrapping
+        
+        if (indexPath as NSIndexPath).row % 2 == 0 {
+            //if even 
+            cell.backgroundColor = UIColor.gray
+        }
+        else {
+            //if odd
+            cell.backgroundColor = UIColor.lightGray
+        }
+        //getStockData()
+        if stockData.isEmpty {
+            cell.textLabel?.text = "Reload Content"
+            
+        } else {
+            cell.textLabel?.text = stockData[indexPath.row]
+        }
+        
+        
+        
         return cell
         
     }
     
-    func emptyTable(emptyTable: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("You selected cell #\((indexPath as NSIndexPath).row)!")
+        
         
     }
+    
+    //END TABLEVIEW
+    
+    //Connection
+    func getStockData() {
+        let path = "https://www.google.com/finance/info?q=OTC:EFFI"
+        Alamofire.request(path,method: .get)
+        
+            .responseString { (response) in
+                //print(response)
+                var content = String(data: response.data!, encoding: String.Encoding.utf8)
+                content = content?.replacingOccurrences(of: "// ", with: "")
+                
+                //print(content)
+                //let jsonString = JSON(content)
+                self.stockView.beginUpdates()
+                if let dataFromString = content?.data(using: .utf8, allowLossyConversion: false) {
+                    let json = JSON(data: dataFromString)
+                    
+                    
+                    for jsonObjects in json {
+                        print(jsonObjects.1)
+                        
+                        let current_price = jsonObjects.1["l_fix"].stringValue
+                        
+                        //let last_time = jsonObjects.1["ltt"].stringValue
+                        //let last_date_time = jsonObjects.1["lt_dts"].stringValue
+                        //let last_change = jsonObjects.1["c_fix"].stringValue
+                        //let stock_ticker = jsonObjects.1["t"].stringValue
+                        //let last_trade_date = jsonObjects.1["lt"].stringValue
+                        //let percent_change = jsonObjects.1["cp"].stringValue
+                        //Calculations
+                        if let currentPrice : Double = Double(current_price) {
+                            let percentGain = ((currentPrice - self.buyingPrice)/self.buyingPrice)*100 //NOTE: Percent gain does not include commission
+                            let dollarValue = self.shares * currentPrice - self.commission
+                            let purchaseValue = self.shares * self.buyingPrice - self.commission
+                            let netGain = ((currentPrice * self.shares) - (self.buyingPrice * self.shares) - self.commission)
+                            let randomIndex = Int(arc4random_uniform(UInt32(factsArray.count)))
+                            
+                            
+                            self.stockData = ["EFFI IS TRADING AT "+current_price,"YOUR SHARES ARE WORTH $"+String(format: "%.2f",dollarValue),"THIS IS A GAIN OF $"+String(format: "%.2f",netGain)+" or "+String(format: "%.3f",percentGain)+"%","IF YOU SOLD NOW YOU'D BANK $"+String(format: "%.2f",netGain+purchaseValue),factsArray[randomIndex]]
+                            
+                        }
+                        else {
+                            NSLog("There's something wrong with the data")
+                        }
+                        
+                    }
+                }
+                
+                self.stockView.reloadData()
+                self.stockView.endUpdates()
+        }
+        
+    }
+    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -1,0 +1,6 @@
+framework module Pods_Maia_EFFI {
+  umbrella header "Pods-Maia+EFFI-umbrella.h"
+
+  export *
+  module * { export * }
+}
