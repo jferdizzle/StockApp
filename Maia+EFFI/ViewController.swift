@@ -31,6 +31,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         
         loadTableView()
+        getStockData()
         view.backgroundColor = .yellow
         
     }
