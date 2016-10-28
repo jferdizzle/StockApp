@@ -132,50 +132,39 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //Connection
     func getStockData() {
-        let path = "https://www.google.com/finance/info?q=OTC:EFFI"
+        let path = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20IN%20(%22EFFI%22)&format=json&env=http://datatables.org/alltables.env"
         Alamofire.request(path,method: .get)
         
-            .responseString { (response) in
+//            .responseJSON { (response) in
+//                print(response.result.value)
+//        }
+        
+            .responseJSON { (response) in
                 //print(response)
-                var content = String(data: response.data!, encoding: String.Encoding.utf8)
-                content = content?.replacingOccurrences(of: "// ", with: "")
                 
-                //print(content)
-                //let jsonString = JSON(content)
-                self.stockView.beginUpdates()
-                if let dataFromString = content?.data(using: .utf8, allowLossyConversion: false) {
-                    let json = JSON(data: dataFromString)
+                    let json = JSON(response.result.value)
+                    
+                    let results = json["query"]["results"]["quote"]
+                
+                    let current_price = results["LastTradePriceOnly"].stringValue
+                
+                //Calculations
+                if let currentPrice : Double = Double(current_price) {
+                    let percentGain = ((currentPrice - self.buyingPrice)/self.buyingPrice)*100 //NOTE: Percent gain does not include commission
+                    let dollarValue = self.shares * currentPrice - self.commission
+                    let purchaseValue = self.shares * self.buyingPrice - self.commission
+                    let netGain = ((currentPrice * self.shares) - (self.buyingPrice * self.shares) - self.commission)
+                    let randomIndex = Int(arc4random_uniform(UInt32(factsArray.count)))
                     
                     
-                    for jsonObjects in json {
-                        print(jsonObjects.1)
-                        
-                        let current_price = jsonObjects.1["l_fix"].stringValue
-                        
-                        //let last_time = jsonObjects.1["ltt"].stringValue
-                        //let last_date_time = jsonObjects.1["lt_dts"].stringValue
-                        //let last_change = jsonObjects.1["c_fix"].stringValue
-                        //let stock_ticker = jsonObjects.1["t"].stringValue
-                        //let last_trade_date = jsonObjects.1["lt"].stringValue
-                        //let percent_change = jsonObjects.1["cp"].stringValue
-                        //Calculations
-                        if let currentPrice : Double = Double(current_price) {
-                            let percentGain = ((currentPrice - self.buyingPrice)/self.buyingPrice)*100 //NOTE: Percent gain does not include commission
-                            let dollarValue = self.shares * currentPrice - self.commission
-                            let purchaseValue = self.shares * self.buyingPrice - self.commission
-                            let netGain = ((currentPrice * self.shares) - (self.buyingPrice * self.shares) - self.commission)
-                            let randomIndex = Int(arc4random_uniform(UInt32(factsArray.count)))
-                            
-                            
-                            self.stockData = ["EFFI IS TRADING AT "+current_price,"YOUR SHARES ARE WORTH $"+String(format: "%.2f",dollarValue),"THIS IS A GAIN OF $"+String(format: "%.2f",netGain)+" or "+String(format: "%.3f",percentGain)+"%","IF YOU SOLD NOW YOU'D BANK $"+String(format: "%.2f",netGain+purchaseValue),factsArray[randomIndex]]
-                            
-                        }
-                        else {
-                            NSLog("There's something wrong with the data")
-                        }
-                        
-                    }
+                    self.stockData = ["EFFI IS TRADING AT "+current_price,"YOUR SHARES ARE WORTH $"+String(format: "%.2f",dollarValue),"THIS IS A GAIN OF $"+String(format: "%.2f",netGain)+" or "+String(format: "%.3f",percentGain)+"%","IF YOU SOLD NOW YOU'D BANK $"+String(format: "%.2f",netGain+purchaseValue),factsArray[randomIndex]]
+                    
                 }
+                else {
+                    print("There's something wrong with the data")
+                }
+                
+                    
                 
                 self.stockView.reloadData()
                 self.stockView.endUpdates()
