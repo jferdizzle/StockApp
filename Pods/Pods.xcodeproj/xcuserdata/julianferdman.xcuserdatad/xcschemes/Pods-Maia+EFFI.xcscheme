@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4CE63A0B19D7A0619ACDA864AEEE47E9"
+               BlueprintIdentifier = "B90614520CC26071E7826F173D73E3E0"
                BuildableName = "Pods_Maia_EFFI.framework"
                BlueprintName = "Pods-Maia+EFFI"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4CE63A0B19D7A0619ACDA864AEEE47E9"
+            BlueprintIdentifier = "B90614520CC26071E7826F173D73E3E0"
             BuildableName = "Pods_Maia_EFFI.framework"
             BlueprintName = "Pods-Maia+EFFI"
             ReferencedContainer = "container:Pods.xcodeproj">

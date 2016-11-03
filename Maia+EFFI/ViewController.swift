@@ -11,8 +11,10 @@ import Alamofire
 import SwiftyJSON
 import SnapKit
 import PullToRefreshSwift
+import Kanna
+import ChameleonFramework
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     var buyingPrice : Double! = 0.0026
@@ -20,23 +22,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var shares : Double! =  60000.00
     var stockView = UITableView()
     
-    
+    var tableViewImage = UIImageView()
     
     var stockData : [String] = []
-    
+    var currentNews = ""
+    var currentLink = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        
         loadTableView()
         getStockData()
-        view.backgroundColor = .yellow
+        getNews()
         
     }
-    
-    
     
     //START TABLEVIEW
     
@@ -49,11 +49,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         stockView.dataSource = self
         stockView.separatorStyle = UITableViewCellSeparatorStyle.none
         stockView.rowHeight = view.frame.height/5
+        stockView.backgroundColor = UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1)
         
         
         var options = PullToRefreshOption()
-        options.backgroundColor = .black
-        options.indicatorColor = .yellow
+        options.backgroundColor = UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1)
+
+        
         
         
         
@@ -94,11 +96,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         if (indexPath as NSIndexPath).row % 2 == 0 {
             //if even 
-            cell.backgroundColor = UIColor.gray
+            cell.backgroundColor = UIColor.gray.flatten()
         }
         else {
             //if odd
-            cell.backgroundColor = UIColor.lightGray
+            cell.backgroundColor = UIColor.lightGray.flatten()
         }
         //getStockData()
         if stockData.isEmpty {
@@ -108,6 +110,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.textLabel?.text = stockData[indexPath.row]
         }
         
+        if (indexPath as NSIndexPath).row == 4 {
+            if self.currentNews == "" && self.currentLink == "" {
+                print("No news")
+            } else {
+                cell.backgroundColor = UIColor(red: 39/255, green: 174/255, blue: 96/255, alpha: 1)
+                cell.textLabel?.textColor = UIColor.white.flatten()
+            }
+        }
         
         
         return cell
@@ -125,8 +135,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You selected cell #\((indexPath as NSIndexPath).row)!")
         
+        if (indexPath as NSIndexPath).row == 4 {
+            if self.currentNews == "" && self.currentLink == "" {
+                print("No news")
+            } else {
+                UIApplication.shared.openURL(URL(string: self.currentLink)!)
+            }
+        }
         
     }
+    
     
     //END TABLEVIEW
     
@@ -135,14 +153,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let path = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20IN%20(%22EFFI%22)&format=json&env=http://datatables.org/alltables.env"
         Alamofire.request(path,method: .get)
         
-//            .responseJSON { (response) in
-//                print(response.result.value)
-//        }
         
             .responseJSON { (response) in
                 //print(response)
                 
-                    let json = JSON(response.result.value)
+                    let json = JSON(response.result.value ?? "")
                     
                     let results = json["query"]["results"]["quote"]
                 
@@ -156,15 +171,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     let netGain = ((currentPrice * self.shares) - (self.buyingPrice * self.shares) - self.commission)
                     let randomIndex = Int(arc4random_uniform(UInt32(factsArray.count)))
                     
+                    var cellFiveText = ""
+                    if self.currentNews == "" && self.currentLink == "" {
+                        cellFiveText = factsArray[randomIndex]
+                    } else {
+                        cellFiveText = self.currentNews
+                    }
                     
-                    self.stockData = ["EFFI IS TRADING AT "+current_price,"YOUR SHARES ARE WORTH $"+String(format: "%.2f",dollarValue),"THIS IS A GAIN OF $"+String(format: "%.2f",netGain)+" or "+String(format: "%.3f",percentGain)+"%","IF YOU SOLD NOW YOU'D BANK $"+String(format: "%.2f",netGain+purchaseValue),factsArray[randomIndex]]
+                    self.stockData = ["EFFI IS TRADING AT "+current_price,"YOUR SHARES ARE WORTH $"+String(format: "%.2f",dollarValue),"THIS IS A GAIN OF $"+String(format: "%.2f",netGain)+" or "+String(format: "%.3f",percentGain)+"%","IF YOU SOLD NOW YOU'D BANK $"+String(format: "%.2f",netGain+purchaseValue),cellFiveText]
                     
                 }
                 else {
                     print("There's something wrong with the data")
                 }
                 
-                    
+                
                 
                 self.stockView.reloadData()
                 self.stockView.endUpdates()
@@ -172,6 +193,49 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    
+    func getNews() {
+        let myURLString = "https://www.bloomberg.com/quote/EFFI:US"
+        guard let myURL = URL(string: myURLString) else {
+            print("Error: \(myURLString) doesn't seem to be a valid URL")
+            return
+        }
+        
+        do {
+            let myHTMLString = try String(contentsOf: myURL, encoding: .utf8)
+            //print("HTML : \(myHTMLString)")
+            
+            
+            if let doc = HTML(html: myHTMLString, encoding: .utf8) {
+                
+                //Today's Date Formatted
+                let todaysDate:NSDate = NSDate()
+                let dateFormatter:DateFormatter =
+                    DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let todayString:String = dateFormatter.string(from: todaysDate as Date)
+
+                
+                // Search for for links that match Company News Item
+                for link in doc.css("a, link") {
+                    if (link.text!).contains("Efftec") || (link.text!).contains("Efftech") {
+                        if (link["href"]!).contains(todayString) {
+                            
+                            print(link.text ?? "")
+                            print(link["href"] ?? "")
+                            self.currentNews = link.text!
+                            self.currentLink = link["href"]!
+                            
+                        }
+                    }
+                }
+
+            }
+        } catch let error {
+            print("Error: \(error)")
+        }
+        
+    }
 
 
     override func didReceiveMemoryWarning() {

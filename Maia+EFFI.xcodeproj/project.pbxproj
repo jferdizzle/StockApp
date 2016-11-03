@@ -243,7 +243,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Julian Ferdman";
 				TargetAttributes = {
 					494DAA1F1C2ED4F4009644D6 = {
@@ -605,6 +605,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3318DEB355A7E74E8A8E707E /* Pods-Maia+EFFI.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Maia+EFFI/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -618,6 +619,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B6C37DD29DE09A48857E9E57 /* Pods-Maia+EFFI.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Maia+EFFI/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

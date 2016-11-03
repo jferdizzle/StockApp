@@ -6,6 +6,8 @@ target 'Maia+EFFI' do
   pod 'Alamofire', '~> 4.0'
   pod 'SwiftyJSON', '3.0.0'
   pod 'PullToRefreshSwift'
+  pod 'Kanna', '~> 2.0.0'
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 

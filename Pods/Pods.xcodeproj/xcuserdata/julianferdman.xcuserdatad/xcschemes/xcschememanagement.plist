@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ChameleonFramework.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Kanna.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Maia+EFFI.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,27 +52,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3E3329F4EC1CA5D66C86158DE9BB083D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>40689BA24F1004EC3DF3227E951EBE10</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4CE63A0B19D7A0619ACDA864AEEE47E9</key>
+		<key>47A4F1E198576DCFC0FC1CF6844EE8AC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4D8966E1A85F1C58A9F77C3F91E2BFFA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>60B1EAAEF4D97940305A9A0ABF59823F</key>
+		<key>5172ACAB7FEA22813859DC97CA0AA16F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -73,6 +73,26 @@
 			<true/>
 		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>86A4A854230BAD7E0FB6328BE7892C16</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B90614520CC26071E7826F173D73E3E0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EE57040B0F2FD9464A60DBE1F82FE001</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F2D1B76CB60DBB5E871F00DE156054E8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
