@@ -18,11 +18,14 @@ import Charts
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var backgroundView = UIView()
+    var stockView = UITableView()
     
+    //User Data
+    var stockTicker = "EFFI"
     var buyingPrice : Double! = 0.0026
     var commission : Double! = 8.95
     var shares : Double! =  60000.00
-    var stockView = UITableView()
+    
     
     var tableViewImage = UIImageView()
     
@@ -193,7 +196,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //Connection
     func getStockData() {
-        let path = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20IN%20(%22EFFI%22)&format=json&env=http://datatables.org/alltables.env"
+        let path = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20IN%20(%22\(stockTicker)%22)&format=json&env=http://datatables.org/alltables.env"
         Alamofire.request(path,method: .get)
         
         
@@ -221,7 +224,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         cellFiveText = self.currentNews
                     }
                     
-                    self.stockData = ["EFFI IS TRADING AT "+current_price,"YOUR SHARES ARE WORTH $"+String(format: "%.2f",dollarValue),"THIS IS A GAIN OF $"+String(format: "%.2f",netGain)+" or "+String(format: "%.3f",percentGain)+"%","IF YOU SOLD NOW YOU'D BANK $"+String(format: "%.2f",netGain+purchaseValue),cellFiveText]
+                    self.stockData = ["\(self.stockTicker) IS TRADING AT "+current_price,"YOUR SHARES ARE WORTH $"+String(format: "%.2f",dollarValue),"THIS IS A GAIN OF $"+String(format: "%.2f",netGain)+" or "+String(format: "%.3f",percentGain)+"%","IF YOU SOLD NOW YOU'D BANK $"+String(format: "%.2f",netGain+purchaseValue),cellFiveText]
                     
                 }
                 else {
@@ -238,7 +241,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func getNews() {
-        let myURLString = "https://www.bloomberg.com/quote/EFFI:US"
+        let myURLString = "https://www.bloomberg.com/quote/\(stockTicker):US"
         guard let myURL = URL(string: myURLString) else {
             print("Error: \(myURLString) doesn't seem to be a valid URL")
             return
@@ -293,7 +296,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         self.historicalStockData.removeAll()
         
-        let path = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.historicaldata%20where%20symbol%20%3D%20%22EFFI%22%20and%20startDate%20%3D%20%22\(lastYearString)%22%20and%20endDate%20%3D%20%22\(todayString)%22&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback="
+        let path = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.historicaldata%20where%20symbol%20%3D%20%22\(stockTicker)%22%20and%20startDate%20%3D%20%22\(lastYearString)%22%20and%20endDate%20%3D%20%22\(todayString)%22&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback="
         
         Alamofire.request(path,method: .get)
             
@@ -356,7 +359,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         lineChart.noDataFont = UIFont.systemFont(ofSize: 10.0)
         lineChart.backgroundColor = UIColor.black
         lineChart.borderLineWidth = 5
-        lineChart.chartDescription?.text = "EFFI: 1 YEAR"
+        lineChart.chartDescription?.text = "\(stockTicker): 1 YEAR"
         lineChart.chartDescription?.textColor = UIColor.white
         lineChart.chartDescription?.font = UIFont.systemFont(ofSize: 10)
         lineChart.leftAxis.labelTextColor = UIColor.white
