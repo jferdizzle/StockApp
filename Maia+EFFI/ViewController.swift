@@ -215,6 +215,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     let dollarValue = self.shares * currentPrice - self.commission
                     let purchaseValue = self.shares * self.buyingPrice - self.commission
                     let netGain = ((currentPrice * self.shares) - (self.buyingPrice * self.shares) - self.commission)
+                    let totalValue = netGain + purchaseValue
                     let randomIndex = Int(arc4random_uniform(UInt32(factsArray.count)))
                     
                     var cellFiveText = ""
@@ -224,7 +225,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         cellFiveText = self.currentNews
                     }
                     
-                    self.stockData = ["\(self.stockTicker) IS TRADING AT "+current_price,"YOUR SHARES ARE WORTH $"+String(format: "%.2f",dollarValue),"THIS IS A GAIN OF $"+String(format: "%.2f",netGain)+" or "+String(format: "%.3f",percentGain)+"%","IF YOU SOLD NOW YOU'D BANK $"+String(format: "%.2f",netGain+purchaseValue),cellFiveText]
+                    let numberFormatter = NumberFormatter()
+                    numberFormatter.numberStyle = NumberFormatter.Style.decimal
+                    let dollarValueFormatted = numberFormatter.string(from: NSNumber(value: dollarValue))
+                    let netGainFormatted = numberFormatter.string(from: NSNumber(value: netGain))
+                    let totalValueFormatted = numberFormatter.string(from: NSNumber(value: totalValue))
+                    
+                    
+                    self.stockData = ["\(self.stockTicker) IS TRADING AT "+current_price,"YOUR SHARES ARE WORTH $"+dollarValueFormatted!,"THIS IS A GAIN OF $"+netGainFormatted!+" or "+String(format: "%.2f",percentGain)+"%","IF YOU SOLD NOW YOU'D BANK $"+totalValueFormatted!,cellFiveText]
                     
                 }
                 else {
