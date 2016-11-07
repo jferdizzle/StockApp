@@ -3,6 +3,9 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
+  - Charts (3.0.0):
+    - Charts/Core (= 3.0.0)
+  - Charts/Core (3.0.0)
   - Kanna (2.0.0)
   - PullToRefreshSwift (3.0.3)
   - SnapKit (3.0.2)
@@ -11,6 +14,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.0)
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
+  - Charts
   - Kanna (~> 2.0.0)
   - PullToRefreshSwift
   - SnapKit (>= 3.0.0)
@@ -28,11 +32,12 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  Charts: beb341928d2135613b4325a6c6aff9f2f6de895e
   Kanna: 9a6637f72f5c77fe9c045b1efb2a5bb074754af8
   PullToRefreshSwift: 0743b818072bfd7c9464addc2d1b987b131057ca
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   SwiftyJSON: f57b2b44bc166617372d1c70773591fe9f0f5fd4
 
-PODFILE CHECKSUM: 7aa79629462e419ae9772c95e672a833ee800417
+PODFILE CHECKSUM: f95fc71dd59a888911c968d9fb5785db59a81d32
 
 COCOAPODS: 1.1.1

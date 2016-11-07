@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Charts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Kanna.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,12 +57,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>332F3BFCAD71AAFE80CEE9468A9DB087</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>346DC80059FA071C473DB7A1E7BB7792</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>40689BA24F1004EC3DF3227E951EBE10</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>47A4F1E198576DCFC0FC1CF6844EE8AC</key>
+		<key>40D4103EAEE276266832D4FD0506FDEF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,22 +92,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>86A4A854230BAD7E0FB6328BE7892C16</key>
+		<key>909ED2F977F88D9F0901710ADCA5B6EB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B90614520CC26071E7826F173D73E3E0</key>
+		<key>BC6F684629B0BE82FBE3D62142FBDBC1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>EE57040B0F2FD9464A60DBE1F82FE001</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F2D1B76CB60DBB5E871F00DE156054E8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

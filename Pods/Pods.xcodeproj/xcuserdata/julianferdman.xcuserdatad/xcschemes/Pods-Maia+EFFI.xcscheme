@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0810"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B90614520CC26071E7826F173D73E3E0"
+               BlueprintIdentifier = "346DC80059FA071C473DB7A1E7BB7792"
                BuildableName = "Pods_Maia_EFFI.framework"
                BlueprintName = "Pods-Maia+EFFI"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B90614520CC26071E7826F173D73E3E0"
+            BlueprintIdentifier = "346DC80059FA071C473DB7A1E7BB7792"
             BuildableName = "Pods_Maia_EFFI.framework"
             BlueprintName = "Pods-Maia+EFFI"
             ReferencedContainer = "container:Pods.xcodeproj">

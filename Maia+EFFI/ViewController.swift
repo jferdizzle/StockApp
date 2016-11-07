@@ -13,9 +13,11 @@ import SnapKit
 import PullToRefreshSwift
 import Kanna
 import ChameleonFramework
+import Charts
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var backgroundView = UIView()
     
     var buyingPrice : Double! = 0.0026
     var commission : Double! = 8.95
@@ -27,23 +29,61 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var stockData : [String] = []
     var currentNews = ""
     var currentLink = ""
+    
+    //Historical
+    var historicalPrice: [String] = []
+    var historicalDate: [String] = []
+    var historicalStockData = [String : String]()
+    
+    //Chart
+    var lineChart = LineChartView()
+    var lineChartData = LineChartData()
+    var barChartView: BarChartView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        view.backgroundColor = UIColor.black
         
+        addBackgroundView()
+        getHistoricalPrices()
         loadTableView()
         getStockData()
         getNews()
         
+        
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.orientation.isLandscape {
+            loadLineChart()
+            backgroundView.isHidden = true
+        }
+        else {
+            backgroundView.isHidden = false
+            lineChart.removeFromSuperview()
+            lineChartData = LineChartData()
+        }
+    }
+    
+    func addBackgroundView() {
+        view.addSubview(backgroundView)
+        
+        backgroundView.snp.makeConstraints { (make) in
+            make.center.equalTo(view)
+            make.height.equalTo(view)
+            make.width.equalTo(view)
+        }
+    }
+    
+
     //START TABLEVIEW
     
     func loadTableView() {
         
         
-        self.view.addSubview(stockView)
+        self.backgroundView.addSubview(stockView)
         
         stockView.delegate = self
         stockView.dataSource = self
@@ -96,11 +136,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         if (indexPath as NSIndexPath).row % 2 == 0 {
             //if even 
+            
             cell.backgroundColor = UIColor.gray.flatten()
+                
+            
         }
         else {
             //if odd
-            cell.backgroundColor = UIColor.lightGray.flatten()
+            cell.backgroundColor = UIColor.darkGray.flatten()
         }
         //getStockData()
         if stockData.isEmpty {
@@ -212,7 +255,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let todaysDate:NSDate = NSDate()
                 let dateFormatter:DateFormatter =
                     DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd"
+                dateFormatter.dateFormat = "yyyyMMdd"
                 let todayString:String = dateFormatter.string(from: todaysDate as Date)
 
                 
@@ -236,7 +279,146 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
     }
+    
+    func getHistoricalPrices() {
+        
+        //Today's Date Formatted
+        let todaysDate:NSDate = NSDate()
+        let oneYearAgo:NSDate = todaysDate.addingTimeInterval(-31540000)
+        let dateFormatter:DateFormatter =
+            DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let todayString:String = dateFormatter.string(from: todaysDate as Date)
+        let lastYearString:String = dateFormatter.string(from: oneYearAgo as Date)
+        
+        self.historicalStockData.removeAll()
+        
+        let path = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.historicaldata%20where%20symbol%20%3D%20%22EFFI%22%20and%20startDate%20%3D%20%22\(lastYearString)%22%20and%20endDate%20%3D%20%22\(todayString)%22&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback="
+        
+        Alamofire.request(path,method: .get)
+            
+            
+            .responseJSON { (response) in
+                //print(response)
+                
+                let json = JSON(response.result.value ?? "")
+                
+                let results = json["query"]["results"]["quote"]
+                var closePrice = ""
+                var closeDate = ""
+                
+                for object in results {
+                    for item in object.1 {
+                        
+                        if item.0 == "Close" {
+                            closePrice = item.1.stringValue
+                            self.historicalPrice.append(closePrice)
+                        }
+                        else if item.0 == "Date" {
+                            closeDate = item.1.stringValue
+                            self.historicalDate.append(closeDate)
+                        }
+                        self.historicalStockData[closeDate] = closePrice
+                    }
+                }
+        }
+        
+        
 
+    }
+
+    
+    //LOAD CHART
+    func loadLineChart() {
+        view.addSubview(lineChart)
+        
+        lineChart.snp.makeConstraints { (make) in
+            make.center.equalTo(view)
+            make.height.equalTo(view)
+            make.width.equalTo(view)
+        }
+        
+        if historicalStockData.isEmpty {
+            print("Do loading work here")
+        }
+        else{
+            loadChartData()
+        }
+        
+        
+        
+    }
+    
+    func loadChartData() {
+        
+        lineChart.noDataText = "Wait for it!"
+        lineChart.noDataTextColor = UIColor.white
+        lineChart.noDataFont = UIFont.systemFont(ofSize: 10.0)
+        lineChart.backgroundColor = UIColor.black
+        lineChart.borderLineWidth = 5
+        lineChart.chartDescription?.text = "EFFI: 1 YEAR"
+        lineChart.chartDescription?.textColor = UIColor.white
+        lineChart.chartDescription?.font = UIFont.systemFont(ofSize: 10)
+        lineChart.leftAxis.labelTextColor = UIColor.white
+        lineChart.leftAxis.labelFont = UIFont.systemFont(ofSize: 10)
+        lineChart.leftAxis.drawAxisLineEnabled = false
+        lineChart.leftAxis.drawZeroLineEnabled = true
+        lineChart.leftAxis.drawGridLinesEnabled = false
+        lineChart.leftAxis.drawTopYLabelEntryEnabled = true
+        lineChart.xAxis.drawLabelsEnabled = false
+        lineChart.rightAxis.enabled = false
+        lineChart.legend.enabled = false
+        lineChart.doubleTapToZoomEnabled = false
+        lineChart.pinchZoomEnabled = false
+        lineChart.scaleXEnabled = false
+        lineChart.scaleYEnabled = false
+        
+        
+        let sortedDictionary =  historicalStockData.sorted(by: { $0.0 < $1.0 })
+        var dataEntries : [ChartDataEntry] = []
+        
+        
+        var count = 0.0
+        for entry in sortedDictionary {
+            //let newDate = (entry.key).replacingOccurrences(of: "-", with: "")
+            //let doubleDate = Double(newDate)
+            //print(doubleDate ?? "")
+            //print(Double(entry.value) ?? "")
+            
+            let point = ChartDataEntry(x: count, y: Double(entry.value)!, data: entry as AnyObject?)
+            dataEntries.append(point)
+            
+            
+            count += 1
+        }
+        
+        
+        let lineChartDataSet = LineChartDataSet(values: dataEntries, label: "Price")
+        lineChartDataSet.drawHorizontalHighlightIndicatorEnabled = false
+        lineChartDataSet.drawVerticalHighlightIndicatorEnabled = false
+        lineChartDataSet.mode = .cubicBezier
+        lineChartDataSet.circleRadius = 0
+        lineChartDataSet.lineWidth = 2.0
+        lineChartDataSet.valueFont = UIFont.systemFont(ofSize: 10.0)
+        lineChartDataSet.valueTextColor = UIColor.white
+        lineChartDataSet.setColor(UIColor.green.flatten())
+        lineChartDataSet.drawFilledEnabled = false
+        lineChartDataSet.fillColor = UIColor.white
+        let data: LineChartData = LineChartData(dataSets: [lineChartDataSet])
+        self.lineChart.data = data
+        
+        let sortedDates =  historicalDate.sorted(by: { $0 < $1 })
+        let xAxis = lineChart.xAxis
+        xAxis.valueFormatter = XValsFormatter(xVals: sortedDates)
+        xAxis.axisMinimum = Double(0)
+        xAxis.drawGridLinesEnabled = false
+        
+        lineChartData.addDataSet(lineChartDataSet)
+        lineChart.data = lineChartData
+    }
+    
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -244,5 +426,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
 
+
 }
 
+class XValsFormatter: NSObject, IAxisValueFormatter {
+    
+    let xVals: [String]
+    init(xVals: [String]) {
+        self.xVals = xVals
+    }
+    
+    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        return xVals[Int(value)]
+    }
+    
+}
